@@ -1,11 +1,19 @@
-import React from 'react';
 import './index.css';
+import data from'./data/data.json'
+import NonReplyComment from './Components/NonReplyComment';
+
 
 function App() {
+  const currentUser = data.currentUser
+  const allComments = data.comments
+
   return (
-    <h1 className="text-3xl font-bold underline text-red-600">
-      Simple React Typescript Tailwind Sample
-    </h1>
+    <div className="w-screen h-screen">
+      {allComments.map(comment => {
+        return (<NonReplyComment comment={comment}/>)
+      })
+      }
+    </div>
   );  
 }
 
