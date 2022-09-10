@@ -1,4 +1,3 @@
-import React from 'react';
 import { Comment } from '../Types/CommentTypes';
 
 const CommentCard = ({comment, replyTo} : {comment: Comment, replyTo?: string}) => {
@@ -20,9 +19,9 @@ const CommentCard = ({comment, replyTo} : {comment: Comment, replyTo?: string}) 
                     <div className="px-4 font-regular text-modBlue">{comment.score}</div>
                     <button className=" text-grayishBlue pr-2 hover:opacity-80 opacity-20 transition-opacity ease-in-out duration-200">-</button>
                 </div>
-                <div className=' text-modBlue'>
+                <button className=' transition-opacity ease-in-out duration-200 hover:opacity-100 opacity-50 text-modBlue'>
                     {"<- Reply"}
-                </div>
+                </button>
             </div>
         </div>
     );
