@@ -1,13 +1,17 @@
+import { useEffect, useState } from 'react';
+import { getUserById } from '../api/getUserById';
+import { User } from '../Types/CommentTypes'
 import { Comment } from '../Types/CommentTypes';
+import { timeFormatter } from '../util/timeFormatter';
 
 const CommentCard = ({comment, replyTo} : {comment: Comment, replyTo?: string}) => {
     return (
         <div className={`p-4 rounded-md border flex flex-col ${replyTo && 'ml-6'} bg-white`}>
             <div className=" flex flex-start items-center">
-                <img className=" h-8" src={comment.user.image.png}/>
-                <div className='mx-3 font-medium'>{comment.user.username}</div> 
+                <img className=" h-8" src={comment.user_id['image-png']}/>
+                <div className='mx-3 font-medium'>{comment.user_id.username}</div> 
                 <div className="text-grayishBlue">
-                {comment.createdAt}
+                {timeFormatter(new Date(comment.created_at))}
                 </div>
             </div>
             <div className={`py-2 text-grayishBlue`}>

@@ -1,30 +1,35 @@
 export type User = {
-    image:{
-        png:string,
-        webp:string,
-    },
+    id:number
+    'image-png':string,
+    'image-webp':string,
     username: string,
 }
 
 export type Reply = {
     id: number,
-    createdAt: string,
+    created_at: Date,
     content: string,
-    replyingTo: string,
+    replying_to: {
+        id: number,
+        username: string,
+    },
     score: number
-    user: User
+    user_id: {
+        id: number
+        'image-png': string
+        username: string
+    },
+    comment_id: number
 }
 
 export type Comment = {
     id: number,
     content: string,
-    createdAt: string,
-    replies: Reply[],
+    created_at: Date,
     score: number,
-    user: User,
-}
-
-export type CommentView = {
-    currentUser: User,
-    comments: Comment[],
+    user_id: {
+        id: number
+        'image-png': string
+        username: string
+    },
 }
